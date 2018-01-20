@@ -1,15 +1,16 @@
-
 var http = require("http");
 
-var server = http.createServer(function(req, rec){
-    response.end('It works! Path hit; ' + req.url);
+var PORTONE = 7000;
+var PORTTWO = 7500;
 
-});
+function handleRequestOne(request, response) {
+    response.end("You're a good boy");
+}
 
-server listen(7000, function(){
-    console.log('You are a good boy')
-});
+function handleRequestTwo(request, response) {
+    response.end("You're a bad boy");
+}
 
-server listen(7500, function(){
-    console.log('You are a bad boy')
-});
+
+var serverOne = http.createServer(handleRequestOne);
+var serverTwo = http.createServer(handleRequestTwo);
